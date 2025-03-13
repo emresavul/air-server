@@ -1,5 +1,5 @@
 services:
-  # ✅ Database (MySQL)
+  #  Database (MySQL)
   air-db:
     image: mysql:latest
     container_name: air-db
@@ -11,26 +11,26 @@ services:
     ports:
       - "3306:3306"
 
-  # ✅ Backend Server
+  #  Backend Server
   backend:
     build: ./backend
     container_name: backend
     restart: unless-stopped
     env_file:
-      - ./backend/.env # ✅ Explicitly load the .env file from backend folder
+      - ./backend/.env #  Explicitly load the .env file from backend folder
     environment:
-      - DOCKER_ENV=true # ✅ This tells the backend it's running inside Docker
+      - DOCKER_ENV=true #  This tells the backend it's running inside Docker
     ports:
       - "5001:5001"
     depends_on:
       - air-db
 
-  # ✅ Frontend Server
-  # frontend:
-  #   build: ./frontend
-  #   container_name: frontend
-  #   restart: unless-stopped
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - backend
+  #  Frontend Server
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

@@ -25,7 +25,7 @@ const AppFooter = () => {
             Developed by
           </Typography>
           <Link
-            href=""
+            href="https://github.com/emresavul"
             target="_blank"
             rel="noopener noreferrer"
             sx={{
