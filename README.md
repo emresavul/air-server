@@ -39,7 +39,7 @@ BINALYZE/
 ### 1️⃣ Clone Repository
 
 ```sh
-git clone https://github.com/your-repo/Air-Server.git
+git clone https://github.com/emresavul/air-server.git
 cd Air-Server
 ```
 
