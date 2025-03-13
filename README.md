@@ -11,7 +11,6 @@ AIR Server is a **real-time responder monitoring system** designed for tracking,
 ## 📂 Project Structure
 
 ```
-BINALYZE/
 │── Air-Server/
 │   ├── backend/            # Backend API (Node.js, Express)
 │   │   ├── src/            # Backend source code
