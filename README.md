@@ -14,7 +14,7 @@ AIR Server is a **real-time responder monitoring system** designed for tracking,
 │── Air-Server/
 │   ├── backend/            # Backend API (Node.js, Express)
 │   │   ├── src/            # Backend source code
-│   │   ├── .env            # Environment variables
+│   │   ├── .env            # Environment variables (Pushed to repository)
 │   │   ├── Dockerfile      # Docker configuration for backend
 │   │   ├── package.json    # Node.js dependencies
 │   │   ├── package-lock.json
@@ -33,6 +33,32 @@ AIR Server is a **real-time responder monitoring system** designed for tracking,
 
 ---
 
+## 🛠️ Prerequisites
+
+Before setting up the project, ensure you have the following installed:
+
+1. **[Node.js](https://nodejs.org/) (version 18 or later)**
+
+   - Required to run the backend server and install dependencies.
+   - The responder agent also runs using Node.js.
+
+2. **[Docker](https://www.docker.com/) & Docker Compose**
+
+   - Required to containerize the backend, frontend, and database.
+   - Helps in managing and deploying services easily.
+
+3. **[MySQL](https://www.mysql.com/) (if not using Docker for the database)**
+
+   - Used as the primary database for storing responders and jobs.
+   - If running without Docker, ensure MySQL is installed and configured.
+
+4. **Git (for cloning the repository)**
+   - Required to fetch the project from GitHub and manage version control.
+
+These dependencies ensure a smooth setup and execution of the AIR Server system. 🚀
+
+---
+
 ## 🛠️ Setup & Installation
 
 ### 1️⃣ Clone Repository
@@ -44,7 +70,7 @@ cd Air-Server
 
 ### 2️⃣ Configure Environment Variables
 
-Create a `.env` file inside `backend/` and define:
+An `.env` file is already included in the repository. You can modify it as needed:
 
 ```ini
 DB_HOST=air-db
@@ -69,7 +95,7 @@ docker-compose up --build
 
 ```sh
 cd backend
-npm install  # If running for the first time
+npm install
 npm start
 ```
 
@@ -87,6 +113,16 @@ npm start
 cd Responder-Agent
 node responderAgent.js
 ```
+
+---
+
+## 📌 Running Ports
+
+| Service  | Default Port |
+| -------- | ------------ |
+| Backend  | 5001         |
+| Frontend | 3000         |
+| Database | 3306         |
 
 ---
 
