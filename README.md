@@ -73,12 +73,13 @@ cd Air-Server
 An `.env` file is already included in the repository. You can modify it as needed:
 
 ```ini
-DB_HOST=air-db
+DB_HOST=air-db        #  Use container name, NOT 127.0.0.1
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=airdb
 DB_PORT=3306
-PORT=5001
+
+APP_PORT=5001
 ```
 
 ### 3️⃣ Start Services (Docker)
@@ -237,7 +238,7 @@ If you want to run multiple backend instances on different ports:
 1. Change the **PORT** in `.env` file:
 
 ```ini
-PORT=5002
+APP_PORT=5001
 ```
 
 2. Run the backend service on the new port:
