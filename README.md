@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-AIR Server is a **real-time responder monitoring system** designed for tracking, registering, and managing responders efficiently. The system consists of three main components:
+AIR Server is a **near-real-time responder monitoring system** designed for tracking, registering, and managing responders efficiently. The system consists of three main components:
 
 - **Backend** (Node.js & Express) - API handling responder registration, job assignment, and completion.
 - **Frontend** (React) - Dashboard for monitoring responders and job statuses.
@@ -269,10 +269,10 @@ docker-compose up --build air-server-backend-2
 
 ## 📈 General Approach & Event-Driven Architecture
 
-- **Event-Driven Job Assignment**: When a responder completes a job, it **immediately requests a new job**, instead of waiting for a scheduled job assignment.
-- **Batch Updates**: To avoid API overload, responders update job completion in **batches**.
-- **Efficient Database Transactions**: Instead of inserting multiple jobs for a responder, we **override existing rows**, ensuring only **one active job per responder**.
-- **Health Monitoring**: Each responder updates its **last_seen** timestamp, and unhealthy responders do not receive new jobs.
+- **Event-Driven Job Assignment**: When a responder **completes a job**, it **immediately requests a new job**, instead of waiting for a scheduled job assignment.
+- **Single Job Execution per Responder**: Each responder **can only work on one job at a time**, and once completed, a new job is assigned. However, **completed jobs are logged as separate records in the database** to maintain a full history.
+- **Multiple AIR Server Support**: The system supports **multiple AIR Server instances** by modifying **Docker Compose and port configurations**. To direct agents to a new instance, the **endpoint inside the Responder Agent must be updated manually**.
+- **Health Monitoring**: Each responder updates its **last_seen** timestamp, and unhealthy responders **do not receive new jobs**.
 
 ---
 
